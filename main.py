@@ -35,7 +35,7 @@ async def root(request: Request):
         with open("log_reg.pkl", "rb") as f:
             model_lr = pickle.load(f)
             prediction = model_lr.predict(input_data)
-            return f"{prediction}"
+            return {"result": f"{prediction}"}
     except Exception as e:
         error_message = str(e)
         response_data = {"error": error_message}
